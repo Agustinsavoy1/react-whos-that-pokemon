@@ -3,8 +3,9 @@ import './Form.css'
 
 const Form = () => {
   const [pokemon, setPokemon] = useState([]);
-  //const [respuesta, setRespuesta] = useState("");
   const [isActive, setIsActive] = useState(true);
+  const [score, setScore] = useState(0)
+  
 
   const id = Math.floor(Math.random() * 150) + 1;
 
@@ -27,6 +28,11 @@ const Form = () => {
       });
   }
 
+  const volverAAdivinar = () => {
+    get()
+    
+  }
+
   const adivinarPokemon = (e) => {
     e.preventDefault()
     //setRespuesta(e.target.adivinar.value)
@@ -35,14 +41,14 @@ const Form = () => {
     if(inputName === pokemon.name) {
       setIsActive(false);
       alert("correcto")
+      setScore(score + 1)
+      volverAAdivinar()
       return
     }
     alert("Incorrecto! Intenta de nuevo")
   }
   
-  const volverAAdivinar =() => {
-    get()
-  }
+  
   
 
   return (
@@ -63,6 +69,8 @@ const Form = () => {
         <input type="text" name="adivinar" autoComplete="off" />
         <button type="submit">adivinar</button>
       </form>
+
+      <p>Your score:{score}</p>
     </div>
   );
 };
