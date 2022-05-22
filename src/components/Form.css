@@ -1,0 +1,16 @@
+.pokemon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter {
+    filter: brightness(0);
+}
