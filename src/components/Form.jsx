@@ -3,28 +3,45 @@ import './Form.css'
 
 const Form = () => {
   const [pokemon, setPokemon] = useState([]);
-  const [respuesta, setRespuesta] = useState("");
+  //const [respuesta, setRespuesta] = useState("");
   const [isActive, setIsActive] = useState(true);
 
   const id = Math.floor(Math.random() * 150) + 1;
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setPokemon(data)
+        });
+  }, []);
+
+  async function get(){
+    await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setPokemon(data)
+        setIsActive(true);
       });
-  }, []);
+  }
 
   const adivinarPokemon = (e) => {
     e.preventDefault()
-    setRespuesta(e.target.adivinar.value)
-    if(respuesta === pokemon.name) {
-      setIsActive(current => !current);
-    } else {
-      alert("Incorrecto! Intenta de nuevo")
+    //setRespuesta(e.target.adivinar.value)
+    const inputName = e.target.adivinar.value
+    console.log(inputName)
+    if(inputName === pokemon.name) {
+      setIsActive(false);
+      alert("correcto")
+      return
     }
+    alert("Incorrecto! Intenta de nuevo")
+  }
+  
+  const volverAAdivinar =() => {
+    get()
   }
   
 
@@ -41,9 +58,7 @@ const Form = () => {
         />
       </div>
       <form
-        onSubmit={
-          adivinarPokemon
-        }
+        onSubmit={adivinarPokemon}
       >
         <input type="text" name="adivinar" autoComplete="off" />
         <button type="submit">adivinar</button>
