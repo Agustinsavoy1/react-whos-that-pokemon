@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-whos-that-pokemon/static/css/main.ad3314c7.css",
+    "main.js": "/react-whos-that-pokemon/static/js/main.ab3647b8.js",
+    "index.html": "/react-whos-that-pokemon/index.html",
+    "main.ad3314c7.css.map": "/react-whos-that-pokemon/static/css/main.ad3314c7.css.map",
+    "main.ab3647b8.js.map": "/react-whos-that-pokemon/static/js/main.ab3647b8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad3314c7.css",
+    "static/js/main.ab3647b8.js"
+  ]
+}
