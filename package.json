@@ -1,6 +1,5 @@
 {
-  "homepage": "http://Agustinsavoy1.github.io/react-whos-that-pokemon",
-  "name": "whos-that-pokemon",
+  "name": "whos-that-pokemon",  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
