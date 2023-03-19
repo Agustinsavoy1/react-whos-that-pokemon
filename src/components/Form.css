@@ -2,6 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url("../Assets/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    padding-right: 38rem;
+    
 }
 
 .pokemon-card {
@@ -11,6 +20,29 @@
     align-items: center;
 }
 
+form {
+    display: flex;
+    gap: 2rem;
+}
+
+form input {
+     border-radius:30px;
+     border: none;
+     padding: 10px;
+     background-color: red;
+}
+
+form button {
+ border-radius:30px;
+     border: 0;
+     padding: 10px;
+     background-color: red;
+    cursor: pointer;
+}
 .filter {
     filter: brightness(0);
+}
+
+.pokemon-img { 
+    width: 20rem;
 }
