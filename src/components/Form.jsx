@@ -53,35 +53,16 @@ const Form = () => {
 
   return (
     <>
-      <div
-        className="container-fluid pokemon-container"
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-          margin: "0px",
-          backgroundImage: `url(${background})`,
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center center",
-          backgroundSize: "cover",
-          paddingRight: "38rem",
-        }}
-      >
-        <div className="card pokemon-card">
+      <div className="pokemon-container">
+        <div className="pokemon-card">
           <img
-            style={{
-              width: "20rem",
-            }}
             src={pokemon?.sprites?.front_default}
-            className={isActive ? "filter card-img-top" : "card-img-top"}
+            className={isActive ? "filter pokemon-img" : "pokemon-img"}
             alt={pokemon.name}
           />
         </div>
         <form onSubmit={adivinarPokemon}>
-          <input type="text" name="adivinar" autoComplete="off" />
+          <input type="text" name="adivinar" autoComplete="off" styles={{}} />
           <button type="submit">adivinar</button>
         </form>
 
