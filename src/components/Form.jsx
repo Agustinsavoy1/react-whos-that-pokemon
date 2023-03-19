@@ -5,6 +5,7 @@ const Form = () => {
   const [pokemon, setPokemon] = useState([]);
   const [isActive, setIsActive] = useState(true);
   const [score, setScore] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
   const id = Math.floor(Math.random() * 150) + 1;
 
@@ -42,6 +43,7 @@ const Form = () => {
       setIsActive(false);
       alert("correcto");
       setScore(score + 1);
+      setInputValue("");
       setTimeout(() => {
         volverAAdivinar();
       }, 3000);
@@ -51,23 +53,36 @@ const Form = () => {
     alert("Incorrecto! Intenta de nuevo");
   };
 
+  const onChangeHanlder = (e) => {
+    setInputValue(e.target.value);
+  };
   return (
     <>
-      <div className="pokemon-container">
-        <div className="pokemon-card">
-          <img
-            src={pokemon?.sprites?.front_default}
-            className={isActive ? "filter pokemon-img" : "pokemon-img"}
-            alt={pokemon.name}
-          />
-        </div>
-        <form onSubmit={adivinarPokemon}>
-          <input type="text" name="adivinar" autoComplete="off" styles={{}} />
-          <button type="submit">adivinar</button>
-        </form>
+      {pokemon && (
+        <div className="pokemon-container">
+          <div className="pokemon-card">
+            <img
+              src={pokemon?.sprites?.front_default}
+              className={isActive ? "filter pokemon-img" : "pokemon-img"}
+              alt={pokemon.name}
+            />
+          </div>
+          {
+            <form onSubmit={adivinarPokemon}>
+              <input
+                type="text"
+                name="adivinar"
+                autoComplete="off"
+                value={inputValue}
+                onChange={onChangeHanlder}
+              />
+              <button type="submit">adivinar</button>
+            </form>
+          }
 
-        <p>Your score:{score}</p>
-      </div>
+          <p>Your score:{score}</p>
+        </div>
+      )}
     </>
   );
 };

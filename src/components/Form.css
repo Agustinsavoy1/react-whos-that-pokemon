@@ -27,7 +27,7 @@ form {
 
 form input {
      border-radius:30px;
-     border: 0;
+     border: none;
      padding: 10px;
      background-color: red;
 }
